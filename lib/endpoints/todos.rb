@@ -23,7 +23,7 @@ module Endpoints
       patch "/:id" do |id|
         todo = Todo.first(id: id) || halt(404)
         # warning: not safe
-        #todo.update(body_params)
+        todo.update(body_params)
         encode serialize(todo)
       end
 
