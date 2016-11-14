@@ -1,0 +1,78 @@
+---
+"$schema": http://json-schema.org/draft-04/hyper-schema
+title: FIXME - Todo_group
+description: FIXME
+stability: prototype
+strictProperties: true
+type:
+- object
+definitions:
+  id:
+    description: unique identifier of todo_group
+    readOnly: true
+    format: uuid
+    type:
+    - string
+  name:
+    description: unique name of todo_group
+    readOnly: true
+    type:
+    - string
+  identity:
+    anyOf:
+    - "$ref": "/schemata/todo_group#/definitions/id"
+    - "$ref": "/schemata/todo_group#/definitions/name"
+  created_at:
+    description: when todo_group was created
+    format: date-time
+    type:
+    - string
+  updated_at:
+    description: when todo_group was updated
+    format: date-time
+    type:
+    - string
+links:
+- description: Create a new todo_group.
+  href: "/todo_groups"
+  method: POST
+  rel: create
+  schema:
+    properties: {}
+    type:
+    - object
+  title: Create
+- description: Delete an existing todo_group.
+  href: "/todo_groups/{(%2Fschemata%2Ftodo_group%23%2Fdefinitions%2Fidentity)}"
+  method: DELETE
+  rel: destroy
+  title: Delete
+- description: Info for existing todo_group.
+  href: "/todo_groups/{(%2Fschemata%2Ftodo_group%23%2Fdefinitions%2Fidentity)}"
+  method: GET
+  rel: self
+  title: Info
+- description: List existing todo_groups.
+  href: "/todo_groups"
+  method: GET
+  rel: instances
+  title: List
+- description: Update an existing todo_group.
+  href: "/todo_groups/{(%2Fschemata%2Ftodo_group%23%2Fdefinitions%2Fidentity)}"
+  method: PATCH
+  rel: update
+  schema:
+    properties: {}
+    type:
+    - object
+  title: Update
+properties:
+  created_at:
+    "$ref": "/schemata/todo_group#/definitions/created_at"
+  id:
+    "$ref": "/schemata/todo_group#/definitions/id"
+  name:
+    "$ref": "/schemata/todo_group#/definitions/name"
+  updated_at:
+    "$ref": "/schemata/todo_group#/definitions/updated_at"
+id: schemata/todo_group
